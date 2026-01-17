@@ -219,8 +219,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.opt.termguicolors = false
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -896,7 +894,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'default'
+      vim.cmd.colorscheme 'industry'
     end,
   },
 
