@@ -236,6 +236,9 @@ require('lazy').setup({
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        -- Always load the vim runtime for proper `vim` global recognition
+        { path = vim.env.VIMRUNTIME .. '/lua' },
+        { path = vim.fn.stdpath('config') .. '/lua' },
       },
     },
   },
@@ -458,7 +461,10 @@ require('lazy').setup({
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                disable = { 'missing-fields' },
+                globals = { 'vim' },
+              },
             },
           },
         },
